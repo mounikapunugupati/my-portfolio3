@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Punugupati Mounika | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+/>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+  :root {
+    --main: #4070f4;
+    --glass-bg: rgba(255, 255, 255, 0.52);
+    --dark-bg: #191929;
+    --accent: #ff5e5e;
+    --divider: #ececec;
+    --card-shadow: 0 8px 24px rgba(64, 112, 244, 0.18);
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(120deg, #f7f7ff 60%, #e0edff 100%);
+    color: #23224b;
+    transition: background 0.7s, color 0.7s;
+    overflow-x: hidden;
+    margin: 0;
+    padding-top: 80px;
+  }
+
+  body.dark-mode {
+    background: linear-gradient(120deg, #191929 60%, #23224b 100%);
+    color: #f7f7ff;
+  }
+
+  nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: var(--main);
+    z-index: 1000;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    justify-content: center;
+    padding: 0 2rem;
+  }
+
+  .navbar {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 1.2rem 0;
+  }
+
+  .logo a {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-decoration: none;
+    margin-right: auto;
+  }
+
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu li a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .menu li a:hover {
+    color: var(--accent);
+  }
+
+  .media-icons {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+    align-items: center;
+  }
+
+  .media-icons a,
+  .mode-toggle {
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .mode-toggle {
+    font-size: 1.4rem;
+  }
+
+  section {
+    min-height: 400px;
+    padding: 3rem 10vw 3rem 10vw;
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .divider {
+    width: 100vw;
+    height: 44px;
+    display: block;
+    margin-top: -40px;
+    margin-bottom: 2rem;
+  }
+  .divider path {
+    stroke: none;
+    fill: var(--main);
+    opacity: 0.07;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--main);
+    margin-bottom: 3rem;
+    letter-spacing: 1.5px;
+  }
+
+  .card {
+    backdrop-filter: blur(6px);
+    background: var(--glass-bg);
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
+    padding: 2rem 2.5rem;
+    margin: 1rem 0;
+    transition: box-shadow 0.3s ease;
+    max-width: 100%;
+  }
+
+  .card:hover {
+    box-shadow: 0 15px 40px var(--main);
+  }
+
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(64, 112, 244, 0.3);
+  }
+
+  .hero .text-one {
+    font-size: 1.2rem;
+    color: #23224b;
+  }
+
+  .hero .text-two {
+    font-size: 2.7rem;
+    font-weight: 700;
+    margin-top: 10px;
+    background: linear-gradient(110deg, #223ff2 55%, #ff5e5e 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero .text-three {
+    font-size: 1.2rem;
+    color: var(--main);
+    margin-top: 9px;
+    font-weight: 500;
+  }
+
+  .hero .text-four {
+    font-size: 1.1rem;
+    color: #23224b;
+    margin: 6px 0 24px 0;
+  }
+
+  .button button {
+    outline: none;
+    padding: 14px 34px;
+    border-radius: 28px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background: var(--main);
+    color: #fff;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    margin-right: 8px;
+    box-shadow: 0 2px 12px rgba(64, 112, 244, 0.11);
+    margin-bottom: 7px;
+  }
+
+  .button button:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* New layout: headings vertical, info horizontal */
+  .horizontal-section-container {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+  }
+
+  .horizontal-section {
+    margin-bottom: 3rem;
+  }
+
+  .horizontal-section h3 {
+    color: var(--main);
+    margin-bottom: 1.5rem;
+  }
+
+  .horizontal-cards {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .horizontal-cards .card {
+    flex: 0 0 280px;
+    min-width: 280px;
+    scroll-snap-align: start;
+  }
+
+  .horizontal-cards::-webkit-scrollbar {
+    height: 8px;
+  }
+  .horizontal-cards::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .horizontal-cards::-webkit-scrollbar-thumb {
+    background-color: var(--main);
+    border-radius: 4px;
+  }
+
+  footer {
+    background: var(--main);
+    color: #fff;
+    padding: 1.1rem 0;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="navbar">
+    <div class="logo"><a href="#">Punugupati Mounika</a></div>
+    <ul class="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#side-sections">Side Sections</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="media-icons">
+      <a href="https://www.linkedin.com/in/mounika-punugupati-885b92366" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/mounikapunugupati08" target="_blank"><i class="fab fa-github"></i></a>
+      <button class="mode-toggle" id="modeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero visible" id="home">
+  <img src="profile3.jpg" alt="Punugupati Mounika" loading="lazy" />
+  <div>
+    <div class="text-one">Hello,</div>
+    <div class="text-two">I'm Punugupati Mounika</div>
+    <div class="text-three">Final-year Computer Science Engineering Student</div>
+    <div class="text-four">📧 <a href="mailto:mounikapunugupati08@gmail.com">mounikapunugupati08@gmail.com</a> | 📱 +91-8074122828</div>
+    <div class="button" style="margin-top:2rem;">
+      <button onclick="window.location='#contact'">Hire Me</button>
+      <button onclick="window.open('https://drive.google.com/file/d/your-cv-link/view','_blank')">Download CV</button>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2 class="title">Education</h2>
+  <div class="projects-container">
+    <div class="card">
+      <h3>Bachelor of Technology in Information Technology</h3>
+      <p>Seashadri Rao Gudlavalleru Engineering College (JNTU Kakinada) | 2023–2027</p>
+      <p>CGPA: 8.35</p>
+    </div>
+    <div class="card">
+      <h3>Intermediate (M.P.C)</h3>
+      <p>Nri Vidya Junior College, Guntur | 2021–2023</p>
+      <p>Percentage: 97.1%</p>
+    </div>
+    <div class="card">
+      <h3>Secondary School</h3>
+      <p>Nri Vidya Junior College, Guntur | 2021–2023</p>
+      <p>Percentage: 97.1%</p>
+    </div>
+  </div>
+  <svg class="divider" viewBox="0 0 1440 40"><path d="M0,40 C480,0 960,50 1440,40 L1440,0 L0,0 Z"/></svg>
+</section>
+
+<section id="side-sections">
+  <h2 class="title">Internships & Training</h2>
+  <div class="horizontal-section-container">
+
+    <section class="horizontal-section" id="internships-training">
+      <h3>Internships & Training</h3>
+      <div class="horizontal-cards">
+        <article class="card">
+          <h4>Virtual Internship - Cybersecurity</h4>
+          <p>(Palo Alto Networks, 2024)</p>
+          <p>Hands-on exposure to network security, threat detection, and cloud security fundamentals.</p>
+        </article>
+        <article class="card">
+          <h4>Virtual Internship - Full-Stack Development</h4>
+          <p>(SmartBridge, 2025)</p>
+          <p>Worked on MERN stack web app development including UI, backend, APIs, and DB integration.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="horizontal-section" id="projects-section">
+      <h3>Projects</h3>
+      <div class="horizontal-cards">
+        <article class="card">
+          <h4>ShopEZ – MERN Stack E-commerce</h4>
+          <p>Full-stack web app with MongoDB, Express, React, Node.js supporting JWT auth and payments.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="horizontal-section" id="skills-section">
+      <h3>Technical Skills</h3>
+      <div class="horizontal-cards">
+        <article class="card">
+          <h4>Programming Languages</h4>
+          <ul><li>Java</li><li>Python</li><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        </article>
+        <article class="card">
+          <h4>Tools & Platforms</h4>
+          <ul><li>GitHub</li></ul>
+        </article>
+        <article class="card">
+          <h4>Databases</h4>
+          <ul><li>SQL</li></ul>
+        </article>
+      </div>
+    </section>
+
+  </div>
+  <svg class="divider" viewBox="0 0 1440 40"><path d="M0,40 C480,0 960,50 1440,40 L1440,0 L0,0 Z"/></svg>
+</section>
+
+<section id="certificates">
+  <h2 class="title">Certifications</h2>
+  <div class="projects-container">
+    <div class="card">
+      <ul>
+        <li>Certificate of Completion – Game Development using Buildbox</li>
+        <li>Java Certification – HackerRank</li>
+        <li>Full Stack Development – SmartBridge Educational</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <h2 class="title">Achievements</h2>
+  <div class="projects-container">
+    <div class="card">
+      <ul>
+        <li>1st Place - Command Prompt Usage Competition, 2025</li>
+        <li>3-star badges in Problem Solving and Java on HackerRank</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="title">Contact Me</h2>
+  <div class="card" style="margin:auto;max-width:500px;">
+    <p>Please feel free to reach out via email or LinkedIn!</p>
+    <p>Email: <a href="mailto:mounikapunugupati08@gmail.com">mounikapunugupati08@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/mounika-punugupati-885b92366" target="_blank">mounika-punugupati</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="text">© 2025 Punugupati Mounika. All rights reserved. Designed with ❤️ by Punugupati Mounika</div>
+</footer>
+
+<script>
+  const modeToggle = document.getElementById("modeToggle");
+  modeToggle.onclick = () => {
+    document.body.classList.toggle("dark-mode");
+    modeToggle.innerHTML = document.body.classList.contains("dark-mode")
+      ? '<i class="fas fa-sun"></i>'
+      : '<i class="fas fa-moon"></i>';
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    sections.forEach((sec) => observer.observe(sec));
+  });
+</script>
+</body>
+</html>
