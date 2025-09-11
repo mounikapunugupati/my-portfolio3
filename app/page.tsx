@@ -621,7 +621,7 @@ export default function Portfolio() {
       <footer className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-lg">
-            © 2025 Punugupati Mounika. All rights reserved. Designed with ❤️ by Punugupati Mounika
+            © 2025 Punugupati Mounika. All rights reserved. Designed with by Punugupati Mounika
           </p>
         </div>
       </footer>
